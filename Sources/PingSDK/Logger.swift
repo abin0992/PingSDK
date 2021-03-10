@@ -7,13 +7,14 @@
 
 import Foundation
 
+// swiftlint:disable line_length
 @objc public enum LogLevel: Int {
     case verbose = 10
     case debug = 20
     case info = 30
     case warning = 40
     case error = 50
-    
+
     var shortcut: String {
         switch self {
         case .error: return "E"
@@ -66,12 +67,12 @@ public final class DisabledLogger: Logger {
 @objc public final class DefaultLogger: NSObject, Logger {
     private let dispatchQueue = DispatchQueue(label: "DefaultLogger", qos: .background)
     private let minLevel: LogLevel
-    
+
     @objc public init(minLevel: LogLevel) {
         self.minLevel = minLevel
         super.init()
     }
-    
+
     public func log(_ message: @autoclosure () -> String, with level: LogLevel, file: String = #file, function: String = #function, line: Int = #line) {
         guard level.rawValue >= minLevel.rawValue else { return }
         let messageToPrint = message()

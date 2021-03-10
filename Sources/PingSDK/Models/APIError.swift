@@ -14,6 +14,7 @@ public enum APIError: Error {
     case invalidResponse
     case invalidData
     case invalidUrl
+    case undefined
 
     var description: String {
             switch self {
@@ -27,6 +28,8 @@ public enum APIError: Error {
                 return "Invalid response from the server. Please try again."
             case .invalidData:
                 return "The data received from the server was invalid. Please try again."
+            case .undefined:
+                return "Unknown error occured"
             }
         }
 }

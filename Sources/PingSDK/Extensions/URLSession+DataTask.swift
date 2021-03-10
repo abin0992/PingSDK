@@ -23,7 +23,7 @@ extension URLSession {
             }
 
             if response.statusCode != 200 {
-                result(.failure(.invalidResponse))
+                result(.failure(.undefined))
                 return
             }
 
