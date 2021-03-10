@@ -7,8 +7,3 @@
 
 @testable import PingSDK
 import Foundation
-
-
-class PingTrackerMock: PingTracker {
-    
-}
