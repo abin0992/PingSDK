@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		8637AF5125F850ED00C5A16D /* Encodable+JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637AF5025F850ED00C5A16D /* Encodable+JSONData.swift */; };
+		8637AF7B25F85B2B00C5A16D /* PingTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637AF7A25F85B2B00C5A16D /* PingTrackerTests.swift */; };
+		8637AF9025F85BE200C5A16D /* PingTrackerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637AF8125F85BA900C5A16D /* PingTrackerMock.swift */; };
 		OBJ_35 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* APIEndpoints.swift */; };
 		OBJ_36 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* APIError.swift */; };
 		OBJ_37 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* AsyncOperation.swift */; };
@@ -56,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		8637AF5025F850ED00C5A16D /* Encodable+JSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+JSONData.swift"; sourceTree = "<group>"; };
+		8637AF7A25F85B2B00C5A16D /* PingTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingTrackerTests.swift; sourceTree = "<group>"; };
+		8637AF8125F85BA900C5A16D /* PingTrackerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingTrackerMock.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_11 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		OBJ_12 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -113,6 +117,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8637AF8025F85B8900C5A16D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8637AF8125F85BA900C5A16D /* PingTrackerMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		OBJ_22 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +136,10 @@
 		OBJ_23 /* PingSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				8637AF8025F85B8900C5A16D /* Mocks */,
 				OBJ_24 /* Info.plist */,
 				OBJ_25 /* PingSDKTests.swift */,
+				8637AF7A25F85B2B00C5A16D /* PingTrackerTests.swift */,
 			);
 			name = PingSDKTests;
 			path = Tests/PingSDKTests;
@@ -311,6 +325,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				8637AF7B25F85B2B00C5A16D /* PingTrackerTests.swift in Sources */,
+				8637AF9025F85BE200C5A16D /* PingTrackerMock.swift in Sources */,
 				OBJ_63 /* PingSDKTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

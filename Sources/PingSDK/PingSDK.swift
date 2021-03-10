@@ -20,10 +20,11 @@ final public class PingTracker: NSObject {
     public override init() {}
 
     // MARK: - Public function
-    
-    /// PingSDK function that sends the log to server. To send explicit timestamp and additional comments add it in a "ping event" object and pass it.
+
+    /// PingSDK function that sends the log to server.
+    /// To send explicit timestamp and additional comments add it in a "ping event" object and pass it.
     /// - Parameter event: This is an optional parameter off PingEvent type
-    public func log(event: PingEvent?) {
+    public func log(_ event: PingEvent?) {
         let jsonBody: Data
         do {
             var pingEvent = PingEvent(timestamp: nil, comment: nil)
