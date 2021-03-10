@@ -22,22 +22,43 @@ public struct PingEvent {
     let comment: String?
 
     public init(timestamp: Double?, comment: String?) {
-        let locManager = CLLocationManager()
-        var location: CLLocation = CLLocation(latitude: 0, longitude: 0)
-        locManager.requestWhenInUseAuthorization()
+        self.comment = comment
+        let userLocation = PingEvent.fetchLocation()
+        self.latitude = userLocation.coordinate.latitude
+        self.longitude = userLocation.coordinate.longitude
+        self.timeStamp = timestamp ?? NSDate().timeIntervalSince1970
+        
+    }
 
-        switch locManager.authorizationStatus {
-        case .restricted, .denied:
-            let logger: Logger = DefaultLogger(minLevel: .warning)
-            logger.warning("User has not allowed to access location")
-        default:
-            if let currentLocation = locManager.location {
-                location = currentLocation
+    private static func fetchLocation() -> CLLocation {
+        let locationManager = CLLocationManager()
+        var location: CLLocation = CLLocation(latitude: 0, longitude: 0)
+        if !CLLocationManager.locationServicesEnabled() {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        
+
+        if #available(iOS 14.0, *) {
+            switch locationManager.authorizationStatus {
+            case .restricted, .denied:
+                let logger: Logger = DefaultLogger(minLevel: .warning)
+                logger.warning("User has not allowed to access location")
+            default:
+                if let currentLocation = locationManager.location {
+                    location = currentLocation
+                }
+            }
+        } else {
+            if
+               CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+               CLLocationManager.authorizationStatus() ==  .authorizedAlways
+            {
+                if let currentLocation = locationManager.location {
+                    location = currentLocation
+                }
             }
         }
-        self.latitude = location.coordinate.latitude
-        self.longitude = location.coordinate.longitude
-        self.timeStamp = timestamp ?? NSDate().timeIntervalSince1970
-        self.comment = comment
+
+        return location
     }
 }

@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "PingSDK",
-    platforms: [.iOS(.v14),
+    platforms: [.iOS(.v12),
                 .tvOS(.v12),
                 .macOS(.v10_15)],
     products: [
